@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "436734602364",
+    "firebase_url": "https://exposed-2bc24.firebaseio.com",
+    "project_id": "exposed-2bc24",
+    "storage_bucket": "exposed-2bc24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436734602364:android:61f200261d1bd45c4fedf9",
+        "android_client_info": {
+          "package_name": "com.exposed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436734602364-2j9sbkjafho9f4ir5c0happ5gcqlhq6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8giLVJFny5MEnRbz21wEzED-iyM9U5Pg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436734602364-2j9sbkjafho9f4ir5c0happ5gcqlhq6k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "436734602364-k6faue1gncjjck7dvqm0rrt0fpi28cas.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.exposed"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

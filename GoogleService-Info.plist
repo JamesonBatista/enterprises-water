@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>436734602364-k6faue1gncjjck7dvqm0rrt0fpi28cas.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.436734602364-k6faue1gncjjck7dvqm0rrt0fpi28cas</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA1kRedaeh9UnxlXH9PeKZ_zt2uuopV__M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>436734602364</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.exposed</string>
+	<key>PROJECT_ID</key>
+	<string>exposed-2bc24</string>
+	<key>STORAGE_BUCKET</key>
+	<string>exposed-2bc24.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:436734602364:ios:d45e61d9c9be8a024fedf9</string>
+	<key>DATABASE_URL</key>
+	<string>https://exposed-2bc24.firebaseio.com</string>
+</dict>
+</plist>
