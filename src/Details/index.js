@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 import {
-  View,
+  ViewProduct,
   Badge,
   Container,
   Text,
@@ -20,8 +20,11 @@ import {
   ContainerInfo,
   ViewPhone,
   Dot,
-} from "./styles";
-import { weekDay, formPay, product } from "../../components/ArchivData";
+  ViewWhatsapp,
+} from './styles';
+import {weekDay, formPay, product} from '../../components/ArchivData';
+import Whatsapp from '../../components/Whatsapp';
+import {View, StyleSheet} from 'react-native';
 
 const DetailsScreen = (item) => {
   const {
@@ -40,7 +43,7 @@ const DetailsScreen = (item) => {
   return (
     <Container>
       <ViewImage>
-        <Image source={{ uri: photo }} resizeMode="cover" />
+        <Image source={{uri: photo}} resizeMode="cover" />
       </ViewImage>
       <ViewTitle>
         <Text center bold title light>
@@ -78,10 +81,10 @@ const DetailsScreen = (item) => {
           </Text>
           {formPay?.map((item, index) => {
             return (
-              <View key={index}>
+              <ViewProduct key={index}>
                 <BadgePayProducts color={formpay.includes(item.name)} />
                 <Text light={formpay.includes(item.name)}>{item.name}</Text>
-              </View>
+              </ViewProduct>
             );
           })}
         </ViewBadge>
@@ -92,10 +95,10 @@ const DetailsScreen = (item) => {
           </Text>
           {product?.map((item, index) => {
             return (
-              <View key={index}>
+              <ViewProduct key={index}>
                 <BadgePayProducts color={products.includes(item.include)} />
                 <Text light={products.includes(item.include)}>{item.name}</Text>
-              </View>
+              </ViewProduct>
             );
           })}
         </ViewProducts>
@@ -109,20 +112,24 @@ const DetailsScreen = (item) => {
         <ViewDay>
           {weekDay?.map((item, index) => {
             return (
-              <View key={index}>
+              <ViewProduct key={index}>
                 <MiniBadge color={category.includes(item.id)} />
                 <Text
                   small
                   light={category.includes(item.id)}
-                  bold={category.includes(item.id)}
-                >
+                  bold={category.includes(item.id)}>
                   {item.name}
                 </Text>
-              </View>
+              </ViewProduct>
             );
           })}
         </ViewDay>
       </ViewContainerDay>
+      <ViewWhatsapp>
+        <Text>Peça pelo Whatsapp -&gt; </Text>
+
+        <Whatsapp number={'999789368'} />
+      </ViewWhatsapp>
     </Container>
   );
 };

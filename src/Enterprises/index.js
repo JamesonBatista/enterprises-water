@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { StatusBar } from "react-native";
+import React, {useState, useEffect} from 'react';
+import {StatusBar} from 'react-native';
 import {
   Container,
   Text,
@@ -7,18 +7,18 @@ import {
   ViewLottie,
   ViewDescription,
   ViewEmail,
-} from "./styles";
-import firestore from "@react-native-firebase/firestore";
+} from './styles';
+import firestore from '@react-native-firebase/firestore';
 
-import Loader from "../../components/Loader";
-import Lottie from "../../components/Lottie";
-import Animation from "../../danger.json";
+import Loader from '../../components/Loader';
+import Lottie from '../../components/Lottie';
+import Animation from '../../danger.json';
 const Enterprises = () => {
   const [loading, setLoading] = useState(true);
   const [info, setInfo] = useState([]);
   useEffect(() => {
     firestore()
-      .collection("information")
+      .collection('information')
       .onSnapshot((response) => {
         const data = response.docs.map((snapshot) => ({
           id: snapshot.id,
@@ -49,10 +49,12 @@ const Enterprises = () => {
               </ViewLottie>
             </View>
             <ViewDescription>
-              <Text title> {item.description}</Text>
+              <Text title center>
+                {item.description}
+              </Text>
             </ViewDescription>
             <ViewEmail>
-              <Text color={"cyan"}> {item.email}</Text>
+              <Text color={'cyan'}> {item.email}</Text>
             </ViewEmail>
           </>
         );

@@ -1,6 +1,6 @@
-import styled from "styled-components/native";
-import { Dimensions } from "react-native";
-const { width, height } = Dimensions.get("window");
+import styled from 'styled-components/native';
+import {Dimensions} from 'react-native';
+const {width, height} = Dimensions.get('window');
 export const Container = styled.SafeAreaView`
   flex: 1;
   background-color: #343434;
@@ -10,70 +10,70 @@ export const Text = styled.Text`
   letter-spacing: 1px;
   margin-bottom: 5px;
   font-style: italic;
-  color: ${(props) => props.color ?? "gray"};
-  ${({ light, black, cyan, green }) => {
+  color: ${(props) => props.color ?? 'gray'};
+  ${({light, black, cyan, green}) => {
     switch (true) {
       case light:
-        return "color: #fff";
+        return 'color: #fff';
       case black:
-        return "color: #000";
+        return 'color: #000';
       case cyan:
-        return "color: cyan";
+        return 'color: cyan';
       case green:
-        return "color: #00ff00";
+        return 'color: #00ff00';
       default:
         break;
     }
   }};
-  ${({ bold, lbold, minibold }) => {
+  ${({bold, lbold, minibold}) => {
     switch (true) {
       case bold:
-        return "font-weight: bold";
+        return 'font-weight: bold';
 
       case lbold:
-        return "font-weight: 400";
+        return 'font-weight: 400';
 
       case minibold:
-        return "font-weight: 700";
+        return 'font-weight: 700';
       default:
         break;
     }
   }};
-  ${({ small, medium, large, title }) => {
+  ${({small, medium, large, title}) => {
     switch (true) {
       case small:
-        return "font-size: 12px";
+        return 'font-size: 12px';
       case medium:
-        return "font-size: 14px";
+        return 'font-size: 14px';
       case large:
-        return "font-size: 16px";
+        return 'font-size: 16px';
       case title:
-        return "font-size: 20px";
+        return 'font-size: 20px';
 
       default:
         break;
     }
   }};
-  ${({ center, left, right }) => {
+  ${({center, left, right}) => {
     switch (true) {
       case center:
-        return "text-align: center";
+        return 'text-align: center';
       case right:
-        return "text-align: right";
+        return 'text-align: right';
       default:
-        return "text-align: left";
+        return 'text-align: left';
     }
   }};
-  ${({ marginr10, marginl10, marginr20, marginl20 }) => {
+  ${({marginr10, marginl10, marginr20, marginl20}) => {
     switch (true) {
       case marginr10:
-        return "margin-right: 10px";
+        return 'margin-right: 10px';
       case marginr20:
-        return "margin-right: 20px";
+        return 'margin-right: 20px';
       case marginl10:
-        return "margin-left: 10px";
+        return 'margin-left: 10px';
       case marginl20:
-        return "margin-left: 20px";
+        return 'margin-left: 20px';
       default:
         break;
     }
@@ -93,24 +93,26 @@ export const Badge = styled.View`
   height: 25px;
   margin: 10px 5px;
   border-radius: 12.5px;
-  background-color: ${(props) => (props.category ? "#00ff00" : "red")};
+  background-color: ${(props) => (props.category ? '#00ff00' : 'red')};
 `;
 export const BadgePayProducts = styled.View`
   width: 18px;
   height: 18px;
   margin: 10px 5px;
   border-radius: 9px;
-  background-color: ${(props) => (props.color ? "#00ff00" : "red")};
+  background-color: ${(props) => (props.color ? '#00ff00' : 'red')};
 `;
 
 export const Image = styled.Image`
-  width: 150px;
-  height: 150px;
-  border-width: 5px;
-  border-radius: 75px;
+  width: 100%;
+  height: 100px;
+  border-width: 2px;
+  border-bottom-right-radius: 65px;
+  border-top-left-radius: 65px;
+
   border-color: cyan;
 `;
-export const View = styled.View`
+export const ViewProduct = styled.View`
   flex-direction: row;
   align-items: center;
   margin-right: 5px;
@@ -137,7 +139,7 @@ export const MiniBadge = styled.View`
   height: 8px;
   margin: 10px 5px;
   border-radius: 4px;
-  background-color: ${(props) => (props.color ? "#00ff00" : "red")};
+  background-color: ${(props) => (props.color ? '#00ff00' : 'red')};
 `;
 export const ViewContainerDay = styled.View`
   margin: 0px 10px;
@@ -146,7 +148,7 @@ export const ViewContainerDay = styled.View`
 `;
 export const Divider = styled.View`
   border-width: 0.5;
-  border-color: ${(props) => (props.color ? props.color : "gray")};
+  border-color: ${(props) => (props.color ? props.color : 'gray')};
   width: 90%;
   margin: 5px 20px;
   margin-bottom: 20px;
@@ -164,6 +166,13 @@ export const Dot = styled.View`
   width: 6px;
   height: 6px;
   border-radius: 3px;
-  background-color: ${(props) => (props.color ? "#fff" : "gray")};
+  background-color: ${(props) => (props.color ? '#fff' : 'gray')};
   margin: 0px 5px;
+`;
+export const ViewWhatsapp = styled.View`
+  flex: 1;
+  flex-direction: row;
+  margin: 10px 0px;
+  justify-content: center;
+  align-items: center;
 `;

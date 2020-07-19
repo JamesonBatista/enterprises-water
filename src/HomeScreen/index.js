@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   BadgeText,
   Badge,
@@ -16,6 +16,10 @@ import {
   Text,
   ViewLottie,
   ViewContainer,
+  ScrollAdress,
+  ViewAdress,
+  TextAdress,
+  DividerList,
 } from './styles';
 
 import {StatusBar} from 'react-native';
@@ -25,10 +29,12 @@ import Loader from '../../components/Loader';
 var d = new Date();
 const day = d.getDay();
 import Animation from '../../arrow.json';
-
+import {ListAdress} from '../../components/ArchivData';
 const HomeScreen = ({navigation: {navigate}}) => {
   const [enterprises, setEnterprises] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [listAdress, setListAdress] = useState('Todos');
+  const ListRef = useRef();
   useEffect(() => {
     firestore()
       .collection('empresas')
@@ -46,46 +52,68 @@ const HomeScreen = ({navigation: {navigate}}) => {
   }, []);
   const handleList = (item) => {
     return (
-      <View>
-        <StatusBar barStyle="light-content" />
-        <Loader loading={loading} />
+      <>
+        <View>
+          <StatusBar barStyle="light-content" />
+          <Loader loading={loading} />
 
-        <ViewList>
-          <ViewEnterprise onPress={() => navigate('Details', item)}>
-            <BadgeView>
-              {item.category.includes(day) ? (
-                <BadgeText>ABERTO</BadgeText>
-              ) : (
-                <BadgeText>FECHADO</BadgeText>
-              )}
-              <Badge category={item.category?.includes(day)} />
-            </BadgeView>
-            <ImageEnterprise source={{uri: item.photo}} />
-            <ViewContainer>
-              <ViewInfo>
-                <Text light title>
-                  {item.name}
-                </Text>
-                <Text medium>Bairro: {item.city}</Text>
-                <Text medium>Número: {item.phone}</Text>
-              </ViewInfo>
-              <ViewLottie>
-                <Lottie animation={Animation} />
-              </ViewLottie>
-            </ViewContainer>
-          </ViewEnterprise>
-          <Divider />
-        </ViewList>
-      </View>
+          <ViewList>
+            <ViewEnterprise onPress={() => navigate('Details', item)}>
+              <BadgeView>
+                {item.category.includes(day) ? (
+                  <BadgeText>ABERTO</BadgeText>
+                ) : (
+                  <BadgeText>FECHADO</BadgeText>
+                )}
+                <Badge category={item.category?.includes(day)} />
+              </BadgeView>
+              <ImageEnterprise source={{uri: item.photo}} />
+              <ViewContainer>
+                <ViewInfo>
+                  <Text light title>
+                    {item.name}
+                  </Text>
+                  <Text medium>Cidade: {item.city}</Text>
+                  <Text medium>Bairro: {item.adress[1]}</Text>
+                  <Text medium>Número: {item.phone}</Text>
+                </ViewInfo>
+                <ViewLottie>
+                  <Lottie animation={Animation} />
+                </ViewLottie>
+              </ViewContainer>
+            </ViewEnterprise>
+            <Divider />
+          </ViewList>
+        </View>
+      </>
     );
   };
 
+  const changeCategory = (adress) => {
+    setListAdress(adress);
+  };
   return (
     <Container>
+      <ScrollAdress showsHorizontalScrollIndicator={false} horizontal>
+        {ListAdress.map((adress, index) => {
+          return (
+            <ViewAdress key={index} onPress={() => changeCategory(adress)}>
+              <TextAdress selected={listAdress === adress ? true : false}>
+                {adress}
+              </TextAdress>
+              <DividerList selected={listAdress === adress ? true : false} />
+            </ViewAdress>
+          );
+        })}
+      </ScrollAdress>
+
       <Scroll>
         <FlatList
           data={enterprises.filter((open) => {
-            return open.category.includes(day) || !open.category.includes(day);
+            return (
+              open.category.includes(day) ||
+              (!open.category.includes(day) && open.adress.includes(listAdress))
+            );
           })}
           keyExtractor={(item) => String(item.id)}
           renderItem={({item}) => handleList(item)}

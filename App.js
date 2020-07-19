@@ -45,7 +45,7 @@ export default function App() {
               fontWeight: 'bold',
               textAlign: 'center',
               flexGrow: 1,
-              alignSelf: 'center',
+              // alignSelf: 'center',
             },
           }}
         />

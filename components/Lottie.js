@@ -1,8 +1,14 @@
-import React from "react";
-import LottieView from "lottie-react-native";
+import React from 'react';
+import LottieView from 'lottie-react-native';
+import styled from 'styled-components/native';
 
-const Lottie = ({ animation }) => {
-  return <LottieView source={animation} autoPlay loop />;
+const Animation = styled(LottieView)`
+  width: 30px;
+  height: 30px;
+`;
+
+const Lottie = ({animation}) => {
+  return <Animation source={animation} autoPlay loop />;
 };
 
 export default Lottie;
