@@ -88,6 +88,8 @@ export const View = styled.View`
 `;
 export const ViewLottie = styled.View`
   width: 50px;
+  height: 50px;
+  align-items: center;
 `;
 export const ViewDescription = styled.View`
   margin-bottom: 20px;

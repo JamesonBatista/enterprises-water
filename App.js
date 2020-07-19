@@ -22,7 +22,7 @@ export default function App() {
       <View>
         <Image
           source={require('./assets/splash.png')}
-          style={{width: '100%', height: '100%', resizeMode: 'contain'}}
+          style={{width: '100%', height: '100%', resizeMode: 'cover'}}
         />
       </View>
     );
@@ -45,7 +45,7 @@ export default function App() {
               fontWeight: 'bold',
               textAlign: 'center',
               flexGrow: 1,
-              // alignSelf: 'center',
+              alignSelf: 'center',
             },
           }}
         />

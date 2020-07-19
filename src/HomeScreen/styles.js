@@ -114,6 +114,7 @@ const ViewLottie = styled.View`
   height: 30px;
   position: absolute;
   left: 180px;
+  background-color: transparent;
 `;
 const ViewContainer = styled.View`
   flex-direction: row;

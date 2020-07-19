@@ -104,12 +104,11 @@ export const BadgePayProducts = styled.View`
 `;
 
 export const Image = styled.Image`
-  width: 100%;
+  width: 98%;
   height: 100px;
-  border-width: 2px;
+  border-width: 1px;
   border-bottom-right-radius: 65px;
   border-top-left-radius: 65px;
-
   border-color: cyan;
 `;
 export const ViewProduct = styled.View`

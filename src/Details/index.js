@@ -24,7 +24,6 @@ import {
 } from './styles';
 import {weekDay, formPay, product} from '../../components/ArchivData';
 import Whatsapp from '../../components/Whatsapp';
-import {View, StyleSheet} from 'react-native';
 
 const DetailsScreen = (item) => {
   const {

@@ -50,6 +50,9 @@ const HomeScreen = ({navigation: {navigate}}) => {
         }, 3000);
       });
   }, []);
+  const changeCategory = (adress) => {
+    setListAdress(adress);
+  };
   const handleList = (item) => {
     return (
       <>
@@ -65,7 +68,11 @@ const HomeScreen = ({navigation: {navigate}}) => {
                 ) : (
                   <BadgeText>FECHADO</BadgeText>
                 )}
-                <Badge category={item.category?.includes(day)} />
+                <Badge
+                  category={
+                    item.category?.includes(day) && item.hour > d.getHours()
+                  }
+                />
               </BadgeView>
               <ImageEnterprise source={{uri: item.photo}} />
               <ViewContainer>
@@ -89,9 +96,6 @@ const HomeScreen = ({navigation: {navigate}}) => {
     );
   };
 
-  const changeCategory = (adress) => {
-    setListAdress(adress);
-  };
   return (
     <Container>
       <ScrollAdress showsHorizontalScrollIndicator={false} horizontal>
@@ -111,8 +115,8 @@ const HomeScreen = ({navigation: {navigate}}) => {
         <FlatList
           data={enterprises.filter((open) => {
             return (
-              open.category.includes(day) ||
-              (!open.category.includes(day) && open.adress.includes(listAdress))
+              open.category.includes(day) || !open.category.includes(day),
+              open.adress.includes(listAdress)
             );
           })}
           keyExtractor={(item) => String(item.id)}
