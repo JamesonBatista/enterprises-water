@@ -43,10 +43,12 @@ const ProductsComponents = ({items}) => {
             </ViewItems>
           )}
         </ViewAgua>
-        <ItemGas>
-          <TextItems>{items.itemGas?.name}</TextItems>
-          <TextItems>Preço: {items.itemGas?.price},00</TextItems>
-        </ItemGas>
+        {items.itemGas && (
+          <ItemGas>
+            <TextItems>{items.itemGas?.name}</TextItems>
+            <TextItems>Preço: {items.itemGas?.price},00</TextItems>
+          </ItemGas>
+        )}
       </Items>
     </>
   );

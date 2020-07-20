@@ -13,27 +13,25 @@ import firestore from '@react-native-firebase/firestore';
 import Loader from '../../components/Loader';
 import Lottie from '../../components/Lottie';
 import Animation from '../../danger.json';
+import {GetInformation, GetInfor} from '../../components/API';
 const Enterprises = () => {
   const [loading, setLoading] = useState(true);
   const [info, setInfo] = useState([]);
   useEffect(() => {
-    firestore()
-      .collection('information')
-      .onSnapshot((response) => {
-        const data = response.docs.map((snapshot) => ({
-          id: snapshot.id,
-          ...snapshot.data(),
-        }));
-        setInfo(data);
-        setTimeout(() => {
-          setLoading(false);
-        }, 3000);
-      });
+    GetInformation();
+    setTimeout(() => {
+      if (GetInfor) {
+        setInfo(GetInfor);
+        setLoading(false);
+      } else {
+        GetInformation();
+      }
+    }, 5000);
   }, []);
   return (
     <Container>
       <StatusBar barStyle="light-content" />
-      <Loader loading={loading} />
+      <Loader loading={loading} color={'#fff'} />
       {info?.map((item, index) => {
         return (
           <>

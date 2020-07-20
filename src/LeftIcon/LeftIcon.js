@@ -1,5 +1,4 @@
 import React from 'react';
-import {View, Button, Image} from 'react-native';
 import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
 

@@ -1,17 +1,30 @@
-import * as firebase from 'firebase';
-import 'firebase/firestore';
+import firestore from '@react-native-firebase/firestore';
 
-var firebaseConfig = {
-  apiKey: 'AIzaSyAk86-UOXI9ExzScxsAC1SiGDBff3e2W_o',
-  authDomain: 'consult-enterprise.firebaseapp.com',
-  databaseURL: 'https://consult-enterprise.firebaseio.com',
-  projectId: 'consult-enterprise',
-  storageBucket: 'consult-enterprise.appspot.com',
-  messagingSenderId: '392704685178',
-  appId: '1:392704685178:web:e3ed83484721933897b7c3',
-  measurementId: 'G-TXR1C8WSEY',
+export let GetEnterprise = '';
+
+const EnterprisesAPI = async () => {
+  await firestore()
+    .collection('empresas')
+    .onSnapshot((response) => {
+      const data = response.docs.map((snapshot) => ({
+        id: snapshot.id,
+        ...snapshot.data(),
+      }));
+      GetEnterprise = data;
+    });
 };
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-export default () => db;
+export let GetInfor = '';
+const GetInformation = async () => {
+  await firestore()
+    .collection('information')
+    .onSnapshot((response) => {
+      const data = response.docs.map((snapshot) => ({
+        id: snapshot.id,
+        ...snapshot.data(),
+      }));
+      GetInfor = data;
+    });
+};
+
+export {EnterprisesAPI, GetInformation};

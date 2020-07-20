@@ -87,7 +87,7 @@ const BadgeView = styled.View`
   align-items: center;
 `;
 const BadgeText = styled.Text`
-  color: #fff;
+  color: ${(props) => (props.color ? props.color : '#fff')};
   font-size: 10px;
   margin: 2px 0px;
   top: -10px;
