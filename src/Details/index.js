@@ -21,57 +21,22 @@ import {
   ViewPhone,
   Dot,
   ViewWhatsapp,
+  ViewItems,
+  Items,
+  TextItems,
+  ItemGas,
+  ViewAgua,
 } from './styles';
 import {weekDay, formPay, product} from '../../components/ArchivData';
 import Whatsapp from '../../components/Whatsapp';
+import ProductsComponents from './Products';
+import InformationComponents from './Informations';
 
 const DetailsScreen = (item) => {
-  const {
-    formpay,
-    adress,
-    name,
-    phone,
-    phone3,
-    phone2,
-    photo,
-    city,
-    category,
-    products,
-  } = item.route.params;
-
+  const {formpay, category, products, items} = item.route.params;
   return (
     <Container>
-      <ViewImage>
-        <Image source={{uri: photo}} resizeMode="cover" />
-      </ViewImage>
-      <ViewTitle>
-        <Text center bold title light>
-          {name}
-        </Text>
-      </ViewTitle>
-      <ContainerInfo>
-        <ViewInfo>
-          <Text medium bold marginr10>
-            {city}
-          </Text>
-        </ViewInfo>
-        <ViewInfo>
-          <Text medium bold marginr10>
-            {adress}
-          </Text>
-        </ViewInfo>
-        <ViewInfo>
-          <ViewPhone>
-            <Text medium bold>
-              {phone}
-            </Text>
-            <Dot color={phone2} />
-            <Text medium bold>
-              {phone2}
-            </Text>
-          </ViewPhone>
-        </ViewInfo>
-      </ContainerInfo>
+      <InformationComponents data={item} />
       <Divider />
       <ViewOptions>
         <ViewBadge>
@@ -104,6 +69,11 @@ const DetailsScreen = (item) => {
       </ViewOptions>
       <Divider />
 
+      {/* View component products */}
+      <ProductsComponents items={items} />
+      {/* View component products */}
+
+      <Divider />
       <ViewContainerDay>
         <Text title light>
           Dias de atendimento
@@ -125,8 +95,7 @@ const DetailsScreen = (item) => {
         </ViewDay>
       </ViewContainerDay>
       <ViewWhatsapp>
-        <Text>Peça pelo Whatsapp -&gt; </Text>
-
+        <Text light>Peça pelo Whatsapp -&gt; </Text>
         <Whatsapp number={'999789368'} />
       </ViewWhatsapp>
     </Container>

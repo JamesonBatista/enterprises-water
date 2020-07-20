@@ -132,7 +132,7 @@ export const TextAdress = styled.Text`
   margin-top: 15px;
   color: ${(props) => (props.selected ? '#00ffff' : '#9a9a9a')};
   font-weight: ${(props) => (props.selected ? 'bold' : '400')};
-  font-size: ${(props) => (props.selected ? '16px' : '12px')};
+  font-size: ${(props) => (props.selected ? '18px' : '12px')};
 `;
 export const DividerList = styled.View`
   width: 8px;

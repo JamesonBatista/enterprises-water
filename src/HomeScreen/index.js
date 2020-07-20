@@ -44,7 +44,6 @@ const HomeScreen = ({navigation: {navigate}}) => {
           ...snapshot.data(),
         }));
         setEnterprises(data);
-        console.log('enterprise: ', enterprises);
         setTimeout(() => {
           setLoading(false);
         }, 3000);

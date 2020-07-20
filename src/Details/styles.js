@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import {Dimensions} from 'react-native';
 const {width, height} = Dimensions.get('window');
-export const Container = styled.SafeAreaView`
+export const Container = styled.ScrollView`
   flex: 1;
   background-color: #343434;
 `;
@@ -81,7 +81,7 @@ export const Text = styled.Text`
 `;
 
 export const ViewTitle = styled.View`
-  margin-bottom: 10px;
+  margin: 5px 0px;
 `;
 export const ViewImage = styled.View`
   justify-content: center;
@@ -141,7 +141,7 @@ export const MiniBadge = styled.View`
   background-color: ${(props) => (props.color ? '#00ff00' : 'red')};
 `;
 export const ViewContainerDay = styled.View`
-  margin: 0px 10px;
+  margin: 0px 0px;
   justify-content: center;
   align-items: center;
 `;
@@ -169,9 +169,27 @@ export const Dot = styled.View`
   margin: 0px 5px;
 `;
 export const ViewWhatsapp = styled.View`
-  flex: 1;
   flex-direction: row;
   margin: 10px 0px;
   justify-content: center;
   align-items: center;
+`;
+
+export const ViewItems = styled.View`
+  flex-direction: row;
+  margin: 0px 10px;
+`;
+export const ViewAgua = styled.View``;
+
+export const Items = styled.View`
+  flex-direction: row;
+`;
+
+export const TextItems = styled.Text`
+  color: #fff;
+  margin: 5px 5px;
+`;
+export const ItemGas = styled.View`
+  flex-direction: row;
+  margin: 0px 10px;
 `;
