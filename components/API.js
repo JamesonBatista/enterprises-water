@@ -27,4 +27,21 @@ const GetInformation = async () => {
     });
 };
 
-export {EnterprisesAPI, GetInformation};
+export let ListCity = [];
+const GetListCity = async () => {
+  let data = [];
+  await fetch(
+    'https://servicodados.ibge.gov.br/api/v1/localidades/mesorregioes/2605/distritos',
+  )
+    .then((response) => response.json())
+    .then((result) => {
+      data = result;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  ListCity = data;
+};
+
+export {EnterprisesAPI, GetInformation, GetListCity};

@@ -90,6 +90,7 @@ const BadgeText = styled.Text`
   color: ${(props) => (props.color ? props.color : '#fff')};
   font-size: 10px;
   margin: 2px 0px;
+  margin-bottom: 10px;
   top: -10px;
 `;
 const ViewInfo = styled.View`
@@ -113,11 +114,14 @@ const ViewLottie = styled.View`
   width: 30px;
   height: 30px;
   position: absolute;
-  left: 180px;
+  left: 230px;
+  justify-content: flex-end;
   background-color: transparent;
 `;
 const ViewContainer = styled.View`
   flex-direction: row;
+  margin: 0px 30px;
+  flex: 1;
 `;
 export const ScrollAdress = styled.ScrollView`
   flex-grow: 0;
@@ -131,6 +135,25 @@ export const TextAdress = styled.Text`
   margin: 5px 10px;
   margin-top: 15px;
   color: ${(props) => (props.selected ? '#00ffff' : '#9a9a9a')};
+  font-weight: ${(props) => (props.selected ? 'bold' : '400')};
+  font-size: ${(props) => (props.selected ? '18px' : '12px')};
+`;
+export const ContainerAll = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+  margin: 0px 5px;
+  padding: 5px 5px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: ${(props) =>
+    props.selected ? '#00ffff' : 'rgba(255,255,255,0.3)'};
+  /* width: 70px; */
+  color: ${(props) => (props.selected ? '#fff' : '#9a9a9a')};
+  font-weight: ${(props) => (props.selected ? 'bold' : '400')};
+  font-size: ${(props) => (props.selected ? '18px' : '12px')};
+`;
+export const All = styled.Text`
+  color: ${(props) => (props.selected ? '#000' : '#9a9a9a')};
   font-weight: ${(props) => (props.selected ? 'bold' : '400')};
   font-size: ${(props) => (props.selected ? '18px' : '12px')};
 `;

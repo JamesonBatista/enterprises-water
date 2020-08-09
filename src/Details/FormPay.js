@@ -13,6 +13,7 @@ import {formPay, product} from '../../components/ArchivData';
 
 const FormPayment = ({data}) => {
   const {formpay, category, products, items} = data.route.params;
+  console.log(formpay, products);
   return (
     <>
       <ViewOptions>
