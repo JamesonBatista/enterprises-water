@@ -138,6 +138,12 @@ export const TextAdress = styled.Text`
   font-weight: ${(props) => (props.selected ? 'bold' : '400')};
   font-size: ${(props) => (props.selected ? '18px' : '12px')};
 `;
+export const BeteweenContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0px 20px;
+`;
+export const Online = styled.View``;
 export const ContainerAll = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;

@@ -8,7 +8,7 @@ import FormPayment from './FormPay';
 import ServiceDayComponent from './ServiceDay';
 
 const DetailsScreen = (item) => {
-  const {items, phone} = item.route.params;
+  const {items, phone, phone2} = item.route.params;
   return (
     <Container>
       <InformationComponents data={item} />
@@ -20,10 +20,12 @@ const DetailsScreen = (item) => {
       {/* View component products */}
       <Divider />
       <ServiceDayComponent data={item} />
-      <ViewWhatsapp>
-        <Text light>Peça pelo Whatsapp -&gt; </Text>
-        <Whatsapp number={phone} />
-      </ViewWhatsapp>
+      {phone2 && (
+        <ViewWhatsapp>
+          <Text light>Peça pelo Whatsapp -&gt; </Text>
+          <Whatsapp number={phone} />
+        </ViewWhatsapp>
+      )}
     </Container>
   );
 };

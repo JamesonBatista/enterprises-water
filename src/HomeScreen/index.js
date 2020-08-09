@@ -9,6 +9,8 @@ import {
   DividerList,
   All,
   ContainerAll,
+  BeteweenContainer,
+  Online,
 } from './styles';
 import {StatusBar} from 'react-native';
 
@@ -29,6 +31,7 @@ const HomeScreen = ({navigation: {navigate}}) => {
   const [loading, setLoading] = useState(true);
   const [listAdress, setListAdress] = useState('Todos');
   const ListRef = useRef();
+  const [online, setOnline] = useState(false);
 
   useEffect(() => {
     GetListCity();
@@ -59,18 +62,31 @@ const HomeScreen = ({navigation: {navigate}}) => {
     }, 6000);
   }, []);
   const changeCategory = (adress) => {
-    setListAdress(adress);
+    if (setOnline && adress === 'Todos') {
+      setOnline(false);
+      setListAdress(adress);
+    } else if (setOnline) {
+      setListAdress(adress);
+    }
+  };
+  const HandleOnline = () => {
+    setListAdress('');
+    setOnline(true);
   };
 
   return (
     <Container>
       <StatusBar barStyle="light-content" />
-      <ContainerAll
-        onPress={() => changeCategory('Todos')}
-        selected={listAdress === 'Todos' ? true : false}>
-        <All selected={listAdress === 'Todos' ? true : false}>Todos</All>
-      </ContainerAll>
-
+      <BeteweenContainer>
+        <ContainerAll
+          onPress={() => changeCategory('Todos')}
+          selected={listAdress === 'Todos' ? true : false}>
+          <All selected={listAdress === 'Todos' ? true : false}>TODOS</All>
+        </ContainerAll>
+        <ContainerAll onPress={() => HandleOnline()} selected={online}>
+          <All selected={online}>ABERTO</All>
+        </ContainerAll>
+      </BeteweenContainer>
       <ScrollAdress showsHorizontalScrollIndicator={false} horizontal>
         {city
           .sort((a, b) => (a.nome > b.nome ? 1 : -1))
@@ -93,17 +109,29 @@ const HomeScreen = ({navigation: {navigate}}) => {
 
       <Scroll>
         <Loader loading={loading} color={'#fff'} />
-
-        <FlatList
-          data={enterprises.filter((open) => {
-            return (
-              open.category.includes(day) || !open.category.includes(day),
-              open.adress.includes(listAdress)
-            );
-          })}
-          keyExtractor={(item) => String(item.id)}
-          renderItem={({item}) => <HandleListComponent item={item} />}
-        />
+        {online ? (
+          <FlatList
+            data={enterprises.filter((open) => {
+              return (
+                open.category.includes(day) &&
+                open.adress.includes(listAdress ? listAdress : 'Todos')
+              );
+            })}
+            keyExtractor={(item) => String(item.id)}
+            renderItem={({item}) => <HandleListComponent item={item} />}
+          />
+        ) : (
+          <FlatList
+            data={enterprises.filter((open) => {
+              return (
+                open.category.includes(day) || !open.category.includes(day),
+                open.adress.includes(listAdress)
+              );
+            })}
+            keyExtractor={(item) => String(item.id)}
+            renderItem={({item}) => <HandleListComponent item={item} />}
+          />
+        )}
       </Scroll>
     </Container>
   );
