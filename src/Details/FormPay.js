@@ -1,5 +1,4 @@
 import React from 'react';
-import {View} from 'react-native';
 
 import {
   ViewOptions,
@@ -12,8 +11,7 @@ import {
 import {formPay, product} from '../../components/ArchivData';
 
 const FormPayment = ({data}) => {
-  const {formpay, category, products, items} = data.route.params;
-  console.log(formpay, products);
+  const {formpay, products} = data.route.params;
   return (
     <>
       <ViewOptions>

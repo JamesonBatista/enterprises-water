@@ -71,7 +71,7 @@ export default function App() {
           name="Enterprises"
           component={Enterprises}
           options={{
-            title: 'Cadastro de Empresass ',
+            title: 'Cadastro de Empresas',
 
             headerStyle: {
               backgroundColor: '#343434',

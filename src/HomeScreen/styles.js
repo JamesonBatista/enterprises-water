@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components/native';
 
 const Text = styled.Text`
@@ -33,13 +32,13 @@ const Text = styled.Text`
   ${({small, medium, large, title}) => {
     switch (true) {
       case small:
-        return 'font-size: 12px';
+        return 'font-size: 10px';
       case medium:
-        return 'font-size: 14px';
+        return 'font-size: 12px';
       case large:
-        return 'font-size: 16px';
+        return 'font-size: 14px';
       case title:
-        return 'font-size: 20px';
+        return 'font-size: 18px';
 
       default:
         break;

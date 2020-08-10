@@ -1,5 +1,4 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
 
 import {
   View,
@@ -8,7 +7,6 @@ import {
   BadgeView,
   BadgeText,
   Badge,
-  ImageEnterprise,
   ViewContainer,
   ViewInfo,
   Divider,
@@ -20,7 +18,6 @@ import {useNavigation} from '@react-navigation/native';
 
 const HandleListComponent = ({item}) => {
   const navigation = useNavigation();
-  console.log(item);
 
   return (
     <>
@@ -55,14 +52,14 @@ const HandleListComponent = ({item}) => {
                     light={
                       item.category?.includes(day) && item.hour > d.getHours()
                     }>
-                    Cidade: {item.city}
+                    Cidade: {item.adress[1]}
                   </Text>
                   <Text
                     medium
                     light={
                       item.category?.includes(day) && item.hour > d.getHours()
                     }>
-                    Bairro: {item.adress[1]}
+                    Bairro: {item.city}
                   </Text>
                   <Text
                     medium

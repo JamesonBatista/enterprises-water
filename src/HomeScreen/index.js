@@ -10,7 +10,6 @@ import {
   All,
   ContainerAll,
   BeteweenContainer,
-  Online,
 } from './styles';
 import {StatusBar} from 'react-native';
 
@@ -42,7 +41,7 @@ const HomeScreen = ({navigation: {navigate}}) => {
         setTimeout(() => {
           GetListCity();
           setCity(ListCity);
-        }, 2000);
+        }, 3000);
         GetListCity();
         setCity(ListCity);
       }
